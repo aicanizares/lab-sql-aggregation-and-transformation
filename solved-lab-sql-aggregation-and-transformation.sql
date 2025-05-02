@@ -1,7 +1,14 @@
 # 1.1 Determine the shortest and longest movie durations and name the values as max_duration and min_duration.
 SELECT 
-    FLOOR(MIN(length)) AS min_duration,
-    ROUND(MAX(length), 0) AS max_duration
+    MIN(length) AS min_duration,
+    MAX(length) AS max_duration
+FROM film;
+
+# 1.2. Express the average movie duration in hours and minutes. Don't use decimals.
+# Hint: Look for floor and round functions.
+SELECT 
+    ROUND(AVG(length) / 60, 0) AS avg_hours,
+    ROUND(MOD(AVG(length), 60), 0) AS avg_minutes
 FROM film;
 
 # 2. You need to gain insights related to rental dates: 2.1 Calculate the number of days that the company has been operating.
